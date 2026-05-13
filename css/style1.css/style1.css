@@ -1,0 +1,24 @@
+/*go lenh css*/
+
+img{
+	width: 100px;
+	border-radius: 10%;
+}
+/*table,tr,th,td{
+	border: 1px solid blue;
+	border-collapse: collapse;}*/
+
+body{
+	background-color: #FFF5EE;
+}
+div.container{
+	padding: 10px;
+
+}
+table#a,tr#a1,td#a1{
+	border: 1px solid blue;
+	border-collapse: collapse;
+}
+div.box{
+	text-align: center;
+}
