@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="vi">
+	<head>
+		<title>Thông tin sản phẩm</title>
+		<meta charset ="utf-8">
+
+         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+
+        <!-- Latest compiled JavaScript -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+		
+	</head>
+	<body>
+		<div class="container">
+            <div id = "products-list">
+
+            </div>
+			
+		</div>
+        <script>
+            //Xác định khung chứa 
+            const listProducts = document.getElementById("products-list");
+
+            //Tạo container có class là item
+            const item = document.createElement("div");
+            item.setAttribute("class","item");
+
+            //Tạo khung chứa ảnh và thông tin
+
+            //Tạo khung chứa ảnh
+            const containerImage = document.createElement("div");//<div></div>
+            containerImage.setAttribute("class","item");
+
+            //Tạo ảnh
+            const img = document.createElement("img");
+            img.setAttribute("src","../assets/images/dog.jpg");
+            img.setAttribute("alt","ảnh con chó");
+            img.setAttribute("style","width: 100% ;max-width: 150px");
+            //Đưa vào khung chứa ảnh
+            containerImage.appendChild(img);
+
+            //Tạo 1 container có thông tin sản phẩm có class là info
+            const containerInfo = document.createElement("div");
+            containerInfo.setAttribute("class","info");
+
+            //Tạo <p> chứa tên sản phẩm
+            const name = document.createElement("p");
+            name.innerHTML ="Chó cỏ ";
+
+            //Tạo <p> chứa tên sản phẩm
+            const price = document.createElement("p");
+            price.innerHTML ="1 triệu VND";
+
+            //Tạo <p> chứa tên sản phẩm
+            const description= document.createElement("p");
+            description.innerHTML ="Biết dữ nhà, biết sủa, ăn ngày 3 chén cơm, tối ngủ ";
+
+            //Tạo <a> chứa link chi tiết sản phẩm
+            const linkProduct = document.createElement("a");
+            linkProduct.innerHTML ="Xem chi tiết";
+            linkProduct.setAttribute("href","page2.html");
+            linkProduct.setAttribute("class","btn btn-info");
+            //Gán vào khung chứa info
+            containerInfo.appendChild(name);
+            containerInfo.appendChild(price);
+            containerInfo.appendChild(description);
+            containerInfo.appendChild(linkProduct);
+
+            //Thêm khung chứa image vào item
+            item.appendChild(containerImage);
+            item.appendChild(containerInfo);
+
+            //Thêm item vào list-product
+            listProducts.appendChild(item);
+
+        </script>
+
+	</body>
+</html>
