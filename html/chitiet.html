@@ -3,35 +3,41 @@
 	<head>
 		<title>Đăng nhập</title>
 		<meta charset ="utf-8">
-		<link rel ="stylesheet" href ="../css/style2.css">
+		<link rel ="stylesheet" href ="../css/style5.css">
 		<script src = "../js/lib.js/java.js"></script>
 
 	</head>
 	<body>
 		<div class="container" id ="container">
 			
-			<img src = ""alt = "" id ="image">
-			<p id = "name"></p>
-			<p id = "price"></p>
-			<p id = "description"></p>
+			<img src = "../assets/images/dog.jpg"alt = "ảnh" id ="image">
+			<h1 id="name"></h1>
+        	<h2 id="price"></h2>
+        	<p id="description"></p>
+			<p id = "detail"></p>
+
+        	<a href="../html/page8.html" class="back-btn"><button>
+            ← Quay lại</button>
+       		</a>
 		</div>
 		<script>
 			// Lay ID tu URL
 			const urlParams = new URLSearchParams(window.location.search);
-			const productId = urlParams.get('masp');
+			const productId = urlParams.get("masp");
 			//Tim sp trong mang dua vao ID vua lay
 
 			const foundProduct = products.find(obj => obj.id === productId);
 
 			//Hien thi du lieu ra giao dien
 			if (foundProduct) {
-				document.getElementById('name').innerText = foundProduct.name;
-				document.getElementById('price').innerText = foundProduct.price;
-				document.getElementById('description').innerText = foundProduct.description;
-				document.getElementById('image').src = foundProduct.image;
-				document.getElementById('image').alt = foundProduct.name;
+				document.getElementById("name").innerText = foundProduct.name;
+				document.getElementById("price").innerText = foundProduct.price+ "VNĐ";
+				document.getElementById("description").innerText = foundProduct.description;
+				document.getElementById("detail").innerText = "Mô tả chi tiết: "+ foundProduct.detail;
+				document.getElementById("image").src = foundProduct.image;
+	
 			}else{
-				document.getElementById("container").innerHTML = `<h2> sp ko ton tai hoac da bi xoa</h2><a href = "../index.html">quay lai trang chu</a>`;
+				document.getElementById("container").innerHTML = `<h2> sp ko ton tai hoac da bi xoa</h2><a href = "../index.html">Quay lai trang chu</a>`;
 			}
 
 		</script>

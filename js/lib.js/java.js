@@ -1,31 +1,39 @@
 const products=[
 {
+    id:"sp01",
     name: "Chó cỏ",
     price: 1000000,
     description: "Biết giữ nhà, biết sủa, ăn ngày 3 chén cơm, tối ngủ",
+    detail:"Chó cỏ Việt Nam rất trung thành, dễ nuôi, dễ trúng thưởng và thích hợp làm chó giữ nhà. Đặc biệt phải tiêm phòng hàng tháng hihi",
     image: "../assets/images/dog.jpg",
-    link: "chitet.html" // Đã sửa: Thêm giá trị hợp lệ ở đây thay vì để trống
+    link: "chitiet.html" // Đã sửa: Thêm giá trị hợp lệ ở đây thay vì để trống
 },
  {
+    id:"sp02",
     name: "Con mèo cute phô mai que",
     price: 2500000,
     description: "Meo meo tối ngày",
+    detail:"Một bé mèo dễ thương với bộ lông mềm mại và đôi mắt tinh nghịch. Bé thích được vuốt ve, ngủ ở những nơi ấm áp và đôi khi sẽ đòi ăn bằng những tiếng meo meo đáng yêu.",
     image: "../assets/images/meo.jfif",
-    link: "page2.html" // Đã sửa: Thêm giá trị hợp lệ ở đây thay vì để trống
+    link: "chitiet.html" // Đã sửa: Thêm giá trị hợp lệ ở đây thay vì để trống
 },
 {
-    name: "Súc vật capybara",
+    id:"sp03",
+    name: "Một con capybara",
     price: 10000,
     description: "Capy chỉ biết ngủ rồi ăn",
+    detail: "Capybara là loài gặm nhấm lớn nhất thế giới. Chúng nổi tiếng với tính cách điềm tĩnh, thân thiện với các loài động vật khác và thích ngâm mình trong nước để thư giãn.",
     image: "../assets/images/capy.jfif",
-    link: "page2.html" // Đã sửa: Thêm giá trị hợp lệ ở đây thay vì để trống
+    link: "chitiet.html" // Đã sửa: Thêm giá trị hợp lệ ở đây thay vì để trống
 },
 {
+    id:"sp04",
     name: "Bunny cuteeeee",
     price: 150000,
     description: "Nhảy lăng xăng",
+    detail: "Chú thỏ với đôi tai dài và bộ lông mềm mượt luôn thích chạy nhảy khắp nơi. Bé rất thích cà rốt, rau xanh và những góc nhỏ yên tĩnh để nghỉ ngơi.",
     image: "../assets/images/bunny.jfif",
-    link: "page2.html" // Đã sửa: Thêm giá trị hợp lệ ở đây thay vì để trống
+    link: "chitiet.html" // Đã sửa: Thêm giá trị hợp lệ ở đây thay vì để trống
 },
 ];
 
@@ -91,9 +99,12 @@ function createItem(obj) {
     // Tạo <a> chứa link chi tiết sản phẩm
     const linkProduct = document.createElement("a");
     linkProduct.innerHTML = "Xem chi tiết";
-    linkProduct.setAttribute("href", obj.link); // Dùng luôn thuộc tính link từ object
+    linkProduct.innerText = " Xem chi tiết";
+    linkProduct.href = `${obj.link}?masp=${obj.id}`;
+    
+    // Dùng luôn thuộc tính link từ object
     linkProduct.setAttribute("class", "btn btn-info");
-
+    
     // Gán các thẻ con vào khung chứa info
     containerInfo.appendChild(name);
     containerInfo.appendChild(price);
