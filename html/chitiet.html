@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="vi">
+	<head>
+		<title>Đăng nhập</title>
+		<meta charset ="utf-8">
+		<link rel ="stylesheet" href ="../css/style2.css">
+		<script src = "../js/lib.js/java.js"></script>
+
+	</head>
+	<body>
+		<div class="container" id ="container">
+			
+			<img src = ""alt = "" id ="image">
+			<p id = "name"></p>
+			<p id = "price"></p>
+			<p id = "description"></p>
+		</div>
+		<script>
+			// Lay ID tu URL
+			const urlParams = new URLSearchParams(window.location.search);
+			const productId = urlParams.get('masp');
+			//Tim sp trong mang dua vao ID vua lay
+
+			const foundProduct = products.find(obj => obj.id === productId);
+
+			//Hien thi du lieu ra giao dien
+			if (foundProduct) {
+				document.getElementById('name').innerText = foundProduct.name;
+				document.getElementById('price').innerText = foundProduct.price;
+				document.getElementById('description').innerText = foundProduct.description;
+				document.getElementById('image').src = foundProduct.image;
+				document.getElementById('image').alt = foundProduct.name;
+			}else{
+				document.getElementById("container").innerHTML = `<h2> sp ko ton tai hoac da bi xoa</h2><a href = "../index.html">quay lai trang chu</a>`;
+			}
+
+		</script>
+
+
+
+	</body>
+</html>

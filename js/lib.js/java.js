@@ -4,7 +4,7 @@ const products=[
     price: 1000000,
     description: "Biết giữ nhà, biết sủa, ăn ngày 3 chén cơm, tối ngủ",
     image: "../assets/images/dog.jpg",
-    link: "page2.html" // Đã sửa: Thêm giá trị hợp lệ ở đây thay vì để trống
+    link: "chitet.html" // Đã sửa: Thêm giá trị hợp lệ ở đây thay vì để trống
 },
  {
     name: "Con mèo cute phô mai que",
@@ -21,7 +21,7 @@ const products=[
     link: "page2.html" // Đã sửa: Thêm giá trị hợp lệ ở đây thay vì để trống
 },
 {
-    name: "Bunny cute phô mai queeee",
+    name: "Bunny cuteeeee",
     price: 150000,
     description: "Nhảy lăng xăng",
     image: "../assets/images/bunny.jfif",
@@ -34,10 +34,23 @@ function createItem(obj) {
     const listProducts = document.getElementById("products-list");
     if (!listProducts) return; // Bảo vệ code nếu không tìm thấy thẻ HTML
 
+
     // 2. Tạo container cha có class là item
     const item = document.createElement("div");
     item.setAttribute("class", "item");
     item.style.backgroundColor="rgba(147, 226, 100, 0.2)";
+
+    item.style.padding = "20px";
+    item.style.borderRadius = "10px";
+    item.style.boxSizing = "border-box";
+    // Flexbox cho chính item để đẩy nút "Xem chi tiết" luôn nằm dưới đáy bằng nhau
+    item.style.display = "flex";
+    item.style.flexDirection = "column";
+    item.style.justifyContent = "space-between"; 
+    item.style.alignItems = "center";
+    item.style.textAlign = "center";
+    item.style.flex = "1 1 calc(25% - 40px)"; // Chia đều 4 cột (trừ đi khoảng cách gap)
+    item.style.minWidth = "220px"; // Đảm bảo trên màn hình nhỏ không bị quá bóp nghẹt
 
     // 3. Tạo khung chứa ảnh (Đã sửa class thành "image-box")
     const containerImage = document.createElement("div");
@@ -48,6 +61,7 @@ function createItem(obj) {
     img.setAttribute("src", obj.image);
     img.setAttribute("alt", "ảnh con chó");
     img.setAttribute("style", "width: 100%; max-width: 150px; border-radius: 50%");
+    img.setAttribute("style", "width: 120px; height: 120px; object-fit: cover; border-radius: 50%");
     
     // Đưa ảnh vào khung chứa ảnh
     containerImage.appendChild(img);
@@ -55,6 +69,12 @@ function createItem(obj) {
     // 4. Tạo container chứa thông tin sản phẩm (class="info")
     const containerInfo = document.createElement("div");
     containerInfo.setAttribute("class", "info");
+
+    containerInfo.style.display = "flex";
+    containerInfo.style.flexDirection = "column";
+    containerInfo.style.flexGrow = "1"; // Giúp phần thông tin tự giãn đều
+    containerInfo.style.justifyContent = "space-between";
+    containerInfo.style.width = "100%";
 
     // Tạo <p> chứa tên sản phẩm
     const name = document.createElement("p");
